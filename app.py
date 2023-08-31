@@ -9,7 +9,7 @@ with open('flask finally/123.pkl', 'rb') as file:
 
 @app.route('/')
 def hello_world():
-    return render_template("123.html")
+    return render_template("23.html")
 
 @app.route('/predict',methods=['POST','GET'])
 def predict():
@@ -48,7 +48,7 @@ def predict():
     
     predicted_disease = pred[predictions[0]]  # Assuming 'predictions' is a single prediction
     print(predicted_disease)
-    return render_template('123.html', pred=predicted_disease)
+    return render_template('23.html', pred=predicted_disease)
     
 
 if __name__ == '__main__':

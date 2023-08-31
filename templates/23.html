@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disease Diagnosis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/tyle.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/s]tyle.css') }}" type="text/css">
 </head>
 <style>
-    /* Style the scrollable container */    
+    
     .scrollable-container {
-      max-height: 300px; /* Adjust the maximum height based on your needs */
-      overflow-y: auto; /* Enable vertical scrolling */
+      max-height: 300px; 
+      overflow-y: auto; 
     }
   </style>
 <body>
-    <div class="slide-container">
+    <div class="slide">
         <!-- Disease Information Slide -->
         <div class="slide active">
             <h2>Patient Information</h2>
@@ -27,11 +27,10 @@
                 <option value="Female">Female</option>
             </select>
             <!-- Similar inputs for Blood Pressure and Cholesterol Level -->
-            <button class="next-slide">Next</button>
         </div>
 
         <!-- Symptoms Slide -->
-        <div class="slide">
+        <div class="slide-container">
             <h2>Symptoms</h2>
             <div class="scrollable-container">
                 <form action="/predict" method="post">
@@ -234,33 +233,21 @@
                 <input type="checkbox" name="options[]" value="visual_disturbances">
                 visual_disturbances
             </label>
-
             <br>
             <label>
                 <input type="checkbox" name="options[]" value="blood_in_sputum">
                 blood_in_sputum
             </label>
             </div>
-            <br>
-
-                        <!-- Your checkboxes and form elements here -->
-                        <button type="submit" class="submit-button">Submit</button>
-                    </form>
-                    <button class="prev-slide">Previous</button>
-                    <button class="next-slide">Next</button>
-                </div>
+            <div class="slide">
+                <h2>Disease predicted is:</h2>
+                <textarea id="pred">{{pred}}</textarea>
+                <button class="submit-slide">Submit</button> <!-- Add this line -->
             </div>
     
-            <!-- Outcome Slide from flask -->
-            <div class="slide">
-                <h2>Disease predicted according to Symptoms is:</h2>
-                <textarea id="output" rows="5">{{ pred }}</textarea>
-                <button class="prev-slide">Previous</button>
-                
-            </div>
-
-    </div>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+             </form>
+        <!-- Outcome Slide from flask -->
+    
 </body>
 
 </html>
